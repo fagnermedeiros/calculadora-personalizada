@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(0, 174, 255);
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            background: gold;
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .box {
+            margin: 20px auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            border-radius: 10PX;               
+            background-color: rgb(0, 54, 136);
+        }
+        .box p{
+            color: white;           
+            margin: 10px;
+           
+        }
+        .inpu {            
+            width: 50%;
+            padding: 10px;
+            font-size: 15px;
+            border: none;
+            border-radius: 10px;           
+            outline: none;            
+        }
+        .box button{
+            outline: none;
+            width: 50%;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            background-color: blueviolet;
+            cursor: pointer;      
+            transition: 0.5s;      
+        }
+        button:hover{
+            background-color: cornflowerblue;
+
+        }             
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box-nav">
+            <h3>EXERCICIO #00</h3>
+            <p>fagner de souza medeiros</p>
+        </div>
+    </header>
+    <section class="container">
+        <div class="box">
+            <p>Questão: Leia 2 números. Efetue as 4 operações matemáticas e mostre os resultados.</p>
+            <input id="pA" class="inpu" type="number" placeholder="Digite um valor A">
+            <br><br>
+            <input id="pB" class="inpu" type="number" placeholder="Digite um valor B">
+            <br><br>
+            <div class="operaçoes">
+            <input type="radio" id="adicao" name="operation" value="adicao">
+            <label for="adicao">Adição</label><br>
+            <input type="radio" id="subitracao" name="operation" value="subitracao">
+            <label for="subitracao">Subtração</label><br>
+            <input type="radio" id="multiplicacao" name="operation" value="multiplicacao">
+            <label for="multiplicacao">Multiplicação</label><br>
+            <input type="radio" id="divisao" name="operation" value="divisao">
+            <label for="divisao">Divisão</label>
+            </div><br>
+            <button onclick="go()" value="enviar">enviar</button>                        
+            <div class="res"></div>
+        </div>        
+    </section>
+    <script>       
+        function go(){
+            var valorA = parseInt(document.getElementById('pA').value);
+            var valorB = parseInt(document.getElementById('pB').value);
+            var res = document.querySelector('.res');
+            var operation = document.querySelector('input[name="operation"]:checked').value;
+            var opera,calculo;
+            if(operation == 'adicao')
+            {
+                opera = 'adicao';
+                calculo = valorA + valorB;
+            }else if(operation == 'subitracao'){
+                opera = 'subitracao'
+                calculo = valorA - valorB;
+            }else if(operation == 'multiplicacao'){
+                opera = 'multiplicacao'
+                calculo = valorA * valorB;
+            }else if(operation == 'divisao'){
+                opera = 'divisao'
+                calculo = valorA / valorB;
+            }
+            res.innerHTML = `<br><h4 style="background: red;">RESULTADO:  ${calculo}<h4/>`
+        }
+    </script>
+</body>
+</html>
+
